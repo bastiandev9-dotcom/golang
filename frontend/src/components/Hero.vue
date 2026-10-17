@@ -108,6 +108,11 @@ const iconItem = {
 </template>
 
 <style scoped>
+.hero {
+  padding-top: 56px;
+  padding-bottom: 72px;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 320px 1fr;

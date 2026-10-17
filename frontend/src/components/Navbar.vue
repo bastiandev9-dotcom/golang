@@ -63,6 +63,8 @@ const toggleMobileMenu = () => {
   background: rgba(11, 26, 51, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-soft);
+  padding: 0;
+  display: block;
 }
 
 .navbar-container {
@@ -70,9 +72,11 @@ const toggleMobileMenu = () => {
   margin: 0 auto;
   padding: 0 24px;
   height: 64px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
 .logo {
@@ -81,6 +85,7 @@ const toggleMobileMenu = () => {
   letter-spacing: -0.02em;
   color: var(--text);
   transition: opacity 0.2s ease;
+  flex-shrink: 0;
 }
 
 .logo:hover {
@@ -95,7 +100,7 @@ const toggleMobileMenu = () => {
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.75rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -108,6 +113,7 @@ const toggleMobileMenu = () => {
   position: relative;
   padding: 0.4rem 0;
   transition: color 0.25s ease;
+  white-space: nowrap;
 }
 
 .nav-link::after {
@@ -200,7 +206,7 @@ const toggleMobileMenu = () => {
   transform: translateX(4px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .nav-menu {
     display: none;
   }
