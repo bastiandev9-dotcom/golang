@@ -1,4 +1,5 @@
 <script setup>
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { motion, useScroll, useSpring } from 'motion-v'
 import Navbar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
@@ -6,6 +7,25 @@ import Services from './components/Services.vue'
 import Projects from './components/Projects.vue'
 import Clients from './components/Clients.vue'
 import Contact from './components/Contact.vue'
+import Dashboard from './components/Dashboard.vue'
+
+const currentPath = ref(window.location.pathname)
+
+const isDashboard = computed(() => {
+  return currentPath.value === '/dashboard' || currentPath.value.startsWith('/dashboard/')
+})
+
+const onPopState = () => {
+  currentPath.value = window.location.pathname
+}
+
+onMounted(() => {
+  window.addEventListener('popstate', onPopState)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('popstate', onPopState)
+})
 
 const { scrollYProgress } = useScroll()
 const progress = useSpring(scrollYProgress, {
@@ -16,21 +36,27 @@ const progress = useSpring(scrollYProgress, {
 </script>
 
 <template>
-  <motion.div
-    class="scroll-progress"
-    :style="{ scaleX: progress }"
-    aria-hidden="true"
-  />
-  <div class="layout">
-    <Navbar />
-    <main>
-      <Hero />
-      <Services />
-      <Projects />
-      <Clients />
-      <Contact />
-    </main>
-  </div>
+  <!-- Route /dashboard -->
+  <Dashboard v-if="isDashboard" />
+
+  <!-- Landing page (/) persis seperti aslinya -->
+  <template v-else>
+    <motion.div
+      class="scroll-progress"
+      :style="{ scaleX: progress }"
+      aria-hidden="true"
+    />
+    <div class="layout">
+      <Navbar />
+      <main>
+        <Hero />
+        <Services />
+        <Projects />
+        <Clients />
+        <Contact />
+      </main>
+    </div>
+  </template>
 </template>
 
 <style scoped>

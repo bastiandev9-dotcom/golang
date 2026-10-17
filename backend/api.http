@@ -1,0 +1,77 @@
+### Variabel Lingkungan
+@baseUrl = http://localhost:8080
+
+### 1. GET Semua Layanan (200 OK)
+GET {{baseUrl}}/api/services
+Accept: application/json
+
+### 2. GET Layanan Berdasarkan ID yang Ada (200 OK)
+GET {{baseUrl}}/api/services/2
+Accept: application/json
+
+### 3. GET Layanan Berdasarkan ID Tidak Ada (404 Not Found)
+GET {{baseUrl}}/api/services/999
+Accept: application/json
+
+### 4. POST Tambah Layanan Baru dengan URL Gambar (JSON) (201 Created)
+POST {{baseUrl}}/api/services
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Cloud Architecture & DevOps",
+  "description": "Perancangan dan implementasi infrastruktur cloud yang skalabel dan otomatis.",
+  "icon": "cloud-arrow-up",
+  "image_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80"
+}
+
+### 5. POST Tambah Layanan dengan Form-Data (Upload Gambar / URL) (201 Created)
+POST {{baseUrl}}/api/services
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Mobile App Development
+--WebAppBoundary
+Content-Disposition: form-data; name="description"
+
+Pengembangan aplikasi Android dan iOS berbasis Flutter & React Native.
+--WebAppBoundary
+Content-Disposition: form-data; name="icon"
+
+phone
+--WebAppBoundary
+Content-Disposition: form-data; name="image_url"
+
+https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80
+--WebAppBoundary--
+
+### 6. PUT Ubah Layanan pada ID yang Ada (200 OK)
+PUT {{baseUrl}}/api/services/2
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "UI UX Design (Updated)",
+  "description": "User-centered design from wireframe to polished prototype, backed by consistent design systems.",
+  "icon": "palette",
+  "image_url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80"
+}
+
+### 7. PUT Ubah Layanan ID Tidak Ada (404 Not Found)
+PUT {{baseUrl}}/api/services/999
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Layanan Tidak Ditemukan",
+  "description": "Testing update pada id yang tidak valid",
+  "icon": "question"
+}
+
+### 8. DELETE Hapus Layanan pada ID yang Ada (204 No Content)
+DELETE {{baseUrl}}/api/services/5
+
+### 9. DELETE Hapus Layanan ID Tidak Ada (404 Not Found)
+DELETE {{baseUrl}}/api/services/999
