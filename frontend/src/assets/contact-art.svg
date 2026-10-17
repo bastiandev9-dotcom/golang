@@ -1,0 +1,60 @@
+<svg viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#9333ea" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background Glow Blob -->
+  <path d="M70,190 Q60,90 170,70 Q280,50 360,130 Q440,210 370,300 Q300,390 180,350 Q60,310 70,190 Z" fill="url(#glow)" />
+
+  <!-- Code / Dashboard Mockup Card -->
+  <g filter="url(#shadow)" transform="translate(30, 40)">
+    <rect width="320" height="220" rx="14" fill="url(#cardGrad)" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
+    
+    <!-- Window Header -->
+    <circle cx="24" cy="24" r="5" fill="#ef4444"/>
+    <circle cx="42" cy="24" r="5" fill="#f59e0b"/>
+    <circle cx="60" cy="24" r="5" fill="#10b981"/>
+    <line x1="80" y1="24" x2="140" y2="24" stroke="rgba(255,255,255,0.15)" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Code Lines -->
+    <g transform="translate(24, 52)">
+      <text x="0" y="0" fill="#3b82f6" font-family="monospace" font-size="13" font-weight="bold">const</text>
+      <text x="42" y="0" fill="#f8fafc" font-family="monospace" font-size="13">portfolio = {</text>
+      
+      <text x="16" y="24" fill="#a855f7" font-family="monospace" font-size="13">status:</text>
+      <text x="75" y="24" fill="#4ade80" font-family="monospace" font-size="13">'Available for hire',</text>
+      
+      <text x="16" y="48" fill="#a855f7" font-family="monospace" font-size="13">focus:</text>
+      <text x="70" y="48" fill="#38bdf8" font-family="monospace" font-size="13">['UI/UX', 'Vue 3', 'F1'],</text>
+
+      <text x="16" y="72" fill="#3b82f6" font-family="monospace" font-size="13">async</text>
+      <text x="58" y="72" fill="#fbbf24" font-family="monospace" font-size="13">sendMessage</text>
+      <text x="145" y="72" fill="#f8fafc" font-family="monospace" font-size="13">(msg) &#123;</text>
+
+      <text x="32" y="96" fill="#f8fafc" font-family="monospace" font-size="13">await</text>
+      <text x="74" y="96" fill="#38bdf8" font-family="monospace" font-size="13">dispatch(msg);</text>
+
+      <text x="16" y="120" fill="#f8fafc" font-family="monospace" font-size="13">&#125;</text>
+      <text x="0" y="144" fill="#f8fafc" font-family="monospace" font-size="13">&#125;;</text>
+    </g>
+  </g>
+
+  <!-- Floating Success Badge Card -->
+  <g filter="url(#shadow)" transform="translate(250, 200)">
+    <rect width="170" height="90" rx="12" fill="#0f172a" stroke="#9333ea" stroke-width="1.5"/>
+    <circle cx="34" cy="45" r="18" fill="rgba(147,51,234,0.2)"/>
+    <path d="M26 45l6 6 12-12" stroke="#a855f7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="64" y="40" fill="#f8fafc" font-family="system-ui" font-size="13" font-weight="700">Top Quality</text>
+    <text x="64" y="58" fill="#94a3b8" font-family="system-ui" font-size="11">100% Responsive</text>
+  </g>
+</svg>
